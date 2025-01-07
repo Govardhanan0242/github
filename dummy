@@ -1,1 +1,434 @@
-hellow this is dummy
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Association and Website Developers</title>
+    <style>
+        /* Ensure the page takes up full height and allows scrolling */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        body {
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #6a1b9a;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            justify-content: flex-start;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header div {
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #5e2a84;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        header div:hover {
+            background-color: #4a1e6e;
+        }
+
+        /* Active states for buttons */
+        #association-tab.active {
+            background-color: #e0e0e0;
+            color: #000;
+        }
+
+        #website-tab.active {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Styling for the card container */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: absolute;
+            top: 80px;
+            width: 100%;
+            height: calc(100vh - 80px);
+            transition: transform 0.6s ease-in-out;
+            overflow-y: auto;
+            padding-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .card-container.association {
+            background-color: #e0e0e0; /* Association background */
+        }
+
+        .card-container.website {
+            background-color: #333; /* Web Dev background */
+        }
+
+        .card {
+            background: white;
+            width: 300px;
+            margin: 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border: 1px solid #ddd; /* Added border for the frame */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            height: 120px;
+            background-color: #e0f7fa;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-header img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+            background-color: #f7f7f7; /* Grey background for info */
+        }
+
+        .card-content table {
+            width: 100%;
+        }
+
+        .card-content th, .card-content td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f4f4f4;
+        }
+
+        /* Active state for sections */
+        .move-left {
+            transform: translateX(-100%);
+        }
+
+        .move-right {
+            transform: translateX(0);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div id="association-tab" onclick="showAssociation()">ASSOCIATION</div>
+        <div id="website-tab" onclick="showWebsite()">WEB DEV</div>
+    </header>
+
+    <div class="card-container association" id="association-section">
+        <!-- Association cards -->
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Person 1">
+            </div>
+            <div class="card-content">
+                <h3>Person 1</h3>
+                <table>
+                    <tr><th>Name</th><td>Alice Johnson</td></tr>
+                    <tr><th>Department</th><td>Software</td></tr>
+                    <tr><th>Branch</th><td>East</td></tr>
+                    <tr><th>Contact</th><td>1112223334</td></tr>
+                    <tr><th>Specialization</th><td>Backend</td></tr>
+                </table>
+            </div>
+        </div>
+        <!-- More cards for Association -->
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Person 2">
+            </div>
+            <div class="card-content">
+                <h3>Person 2</h3>
+                <table>
+                    <tr><th>Name</th><td>Bob Smith</td></tr>
+                    <tr><th>Department</th><td>Networking</td></tr>
+                    <tr><th>Branch</th><td>South</td></tr>
+                    <tr><th>Contact</th><td>1234567890</td></tr>
+                    <tr><th>Specialization</th><td>Network Security</td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Person 3">
+            </div>
+            <div class="card-content">
+                <h3>Person 3</h3>
+                <table>
+                    <tr><th>Name</th><td>Bob Smith</td></tr>
+                    <tr><th>Department</th><td>Networking</td></tr>
+                    <tr><th>Branch</th><td>South</td></tr>
+                    <tr><th>Contact</th><td>1234567890</td></tr>
+                    <tr><th>Specialization</th><td>Network Security</td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Person 4">
+            </div>
+            <div class="card-content">
+                <h3>Person 4</h3>
+                <table>
+                    <tr><th>Name</th><td>Bob Smith</td></tr>
+                    <tr><th>Department</th><td>Networking</td></tr>
+                    <tr><th>Branch</th><td>South</td></tr>
+                    <tr><th>Contact</th><td>1234567890</td></tr>
+                    <tr><th>Specialization</th><td>Network Security</td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Person 5">
+            </div>
+            <div class="card-content">
+                <h3>Person 5</h3>
+                <table>
+                    <tr><th>Name</th><td>Bob Smith</td></tr>
+                    <tr><th>Department</th><td>Networking</td></tr>
+                    <tr><th>Branch</th><td>South</td></tr>
+                    <tr><th>Contact</th><td>1234567890</td></tr>
+                    <tr><th>Specialization</th><td>Network Security</td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Person 6">
+            </div>
+            <div class="card-content">
+                <h3>Person 6</h3>
+                <table>
+                    <tr><th>Name</th><td>Bob Smith</td></tr>
+                    <tr><th>Department</th><td>Networking</td></tr>
+                    <tr><th>Branch</th><td>South</td></tr>
+                    <tr><th>Contact</th><td>1234567890</td></tr>
+                    <tr><th>Specialization</th><td>Network Security</td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Person 7">
+            </div>
+            <div class="card-content">
+                <h3>Person 7</h3>
+                <table>
+                    <tr><th>Name</th><td>Bob Smith</td></tr>
+                    <tr><th>Department</th><td>Networking</td></tr>
+                    <tr><th>Branch</th><td>South</td></tr>
+                    <tr><th>Contact</th><td>1234567890</td></tr>
+                    <tr><th>Specialization</th><td>Network Security</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Cards 3 to 10 omitted for brevity, repeat similar cards for each person -->
+
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Person 8">
+            </div>
+            <div class="card-content">
+                <h3>Person 8</h3>
+                <table>
+                    <tr><th>Name</th><td>James Lee</td></tr>
+                    <tr><th>Department</th><td>Development</td></tr>
+                    <tr><th>Branch</th><td>Central</td></tr>
+                    <tr><th>Contact</th><td>4445556667</td></tr>
+                    <tr><th>Specialization</th><td>Mobile Apps</td></tr>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="card-container website move-left" id="website-section">
+        <!-- Website Developer cards -->
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Developer 1">
+            </div>
+            <div class="card-content">
+                <h3>Developer 1</h3>
+                <table>
+                    <tr><th>Name</th><td>John Doe</td></tr>
+                    <tr><th>Department</th><td>Web Development</td></tr>
+                    <tr><th>Branch</th><td>Main</td></tr>
+                    <tr><th>Contact</th><td>1234567890</td></tr>
+                    <tr><th>Role</th><td>Lead Developer</td></tr>
+                </table>
+            </div>
+        </div>
+        <!-- More cards for Website Development -->
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Developer 2">
+            </div>
+            <div class="card-content">
+                <h3>Developer 2</h3>
+                <table>
+                    <tr><th>Name</th><td>Jane Smith</td></tr>
+                    <tr><th>Department</th><td>Web Development</td></tr>
+                    <tr><th>Branch</th><td>East</td></tr>
+                    <tr><th>Contact</th><td>9876543210</td></tr>
+                    <tr><th>Role</th><td>Frontend Developer</td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Developer 3">
+            </div>
+            <div class="card-content">
+                <h3>Developer 3</h3>
+                <table>
+                    <tr><th>Name</th><td>Jane Smith</td></tr>
+                    <tr><th>Department</th><td>Web Development</td></tr>
+                    <tr><th>Branch</th><td>East</td></tr>
+                    <tr><th>Contact</th><td>9876543210</td></tr>
+                    <tr><th>Role</th><td>Frontend Developer</td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Developer 4">
+            </div>
+            <div class="card-content">
+                <h3>Developer 4</h3>
+                <table>
+                    <tr><th>Name</th><td>Jane Smith</td></tr>
+                    <tr><th>Department</th><td>Web Development</td></tr>
+                    <tr><th>Branch</th><td>East</td></tr>
+                    <tr><th>Contact</th><td>9876543210</td></tr>
+                    <tr><th>Role</th><td>Frontend Developer</td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Developer 5">
+            </div>
+            <div class="card-content">
+                <h3>Developer 5</h3>
+                <table>
+                    <tr><th>Name</th><td>Jane Smith</td></tr>
+                    <tr><th>Department</th><td>Web Development</td></tr>
+                    <tr><th>Branch</th><td>East</td></tr>
+                    <tr><th>Contact</th><td>9876543210</td></tr>
+                    <tr><th>Role</th><td>Frontend Developer</td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Developer 6">
+            </div>
+            <div class="card-content">
+                <h3>Developer 6</h3>
+                <table>
+                    <tr><th>Name</th><td>Jane Smith</td></tr>
+                    <tr><th>Department</th><td>Web Development</td></tr>
+                    <tr><th>Branch</th><td>East</td></tr>
+                    <tr><th>Contact</th><td>9876543210</td></tr>
+                    <tr><th>Role</th><td>Frontend Developer</td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Developer 7">
+            </div>
+            <div class="card-content">
+                <h3>Developer 7</h3>
+                <table>
+                    <tr><th>Name</th><td>Jane Smith</td></tr>
+                    <tr><th>Department</th><td>Web Development</td></tr>
+                    <tr><th>Branch</th><td>East</td></tr>
+                    <tr><th>Contact</th><td>9876543210</td></tr>
+                    <tr><th>Role</th><td>Frontend Developer</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Cards 3 to 10 omitted for brevity, repeat similar cards for each developer -->
+
+        <div class="card">
+            <div class="card-header">
+                <img src="#" alt="Developer 8">
+            </div>
+            <div class="card-content">
+                <h3>Developer 8</h3>
+                <table>
+                    <tr><th>Name</th><td>Linda Green</td></tr>
+                    <tr><th>Department</th><td>Web Development</td></tr>
+                    <tr><th>Branch</th><td>West</td></tr>
+                    <tr><th>Contact</th><td>5558889999</td></tr>
+                    <tr><th>Role</th><td>Backend Developer</td></tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showAssociation() {
+            // Activate the Association section and deactivate the Website section
+            document.getElementById("association-tab").classList.add("active");
+            document.getElementById("website-tab").classList.remove("active");
+            document.getElementById("association-section").classList.remove("move-left");
+            document.getElementById("association-section").classList.add("move-right");
+            document.getElementById("website-section").classList.remove("move-right");
+            document.getElementById("website-section").classList.add("move-left");
+            document.getElementById("association-section").style.backgroundColor = "#e0e0e0";
+            document.getElementById("website-section").style.backgroundColor = "#333";
+        }
+
+        function showWebsite() {
+            // Activate the Website section and deactivate the Association section
+            document.getElementById("website-tab").classList.add("active");
+            document.getElementById("association-tab").classList.remove("active");
+            document.getElementById("association-section").classList.remove("move-right");
+            document.getElementById("association-section").classList.add("move-left");
+            document.getElementById("website-section").classList.remove("move-left");
+            document.getElementById("website-section").classList.add("move-right");
+            document.getElementById("association-section").style.backgroundColor = "#333";
+            document.getElementById("website-section").style.backgroundColor = "#e0e0e0";
+        }
+    </script>
+</body>
+</html>
